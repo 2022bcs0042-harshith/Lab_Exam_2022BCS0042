@@ -36,3 +36,4 @@ joblib.dump(model, "model.pkl")
 metrics = {"mse": mse, "r2": r2}
 with open("metrics.json", "w") as f:
     json.dump(metrics, f)
+print("Auto trigger working")
