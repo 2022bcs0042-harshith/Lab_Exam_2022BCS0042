@@ -5,15 +5,15 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 import json
 
-# Load dataset
-df = pd.read_csv("data/winequality.csv")
+# Load dataset (FIXED LINE)
+df = pd.read_csv("data/winequality.csv", sep=';')
 
 # Features & target
 X = df.drop("quality", axis=1)
 y = df["quality"]
 
 # Split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train model
 model = LinearRegression()
