@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 import json
 
-# Load dataset (FIXED LINE)
+# Load dataset 
 df = pd.read_csv("data/winequality.csv", sep=';')
 
 # Features & target
