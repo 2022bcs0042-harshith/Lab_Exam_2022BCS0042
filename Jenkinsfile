@@ -5,15 +5,25 @@ pipeline {
 
         stage('Setup') {
             steps {
-                echo "Installing dependencies..."
-                sh 'pip install -r requirements.txt'
+                echo "Setting up virtual environment..."
+
+                sh '''
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
 
         stage('Train') {
             steps {
                 echo "Running training..."
-                sh 'python train.py'
+
+                sh '''
+                . venv/bin/activate
+                python train.py
+                '''
             }
         }
 
